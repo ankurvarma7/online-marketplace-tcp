@@ -1,1 +1,23 @@
+# Rust
 /target
+**/*.rs.bk
+Cargo.lock
+*.pdb
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+Thumbs.db
+.DS_Store
+*.exe
+*.dll
+*.dylib
+
+# Editor backups
+*.bak
+*.tmp

@@ -1,5 +1,17 @@
 # Online Marketplace - Programming Assignment 1
 
+## Brief System Summary (8–10 lines)
+1. The system is a distributed online marketplace with six components and TCP-only communication.
+2. Buyer and seller frontend servers are stateless; all state lives in customer and product databases.
+3. Sessions are UUID v4 tokens stored in the customer database with a 5‑minute inactivity timeout.
+4. Each API call is a single request/response over a TCP connection using line‑delimited JSON.
+5. Buyers and sellers can hold multiple concurrent sessions from different machines.
+6. Item data, carts, feedback, and purchase history are stored in the product database.
+7. Authentication uses plaintext credentials (as required for PA1).
+8. The CLI clients expose all required APIs except MakePurchase.
+9. Search is category/keyword based with relevance scoring and case‑insensitive substring matching.
+10. Current state: all required PA1 APIs work; data is in‑memory only and resets on restart.
+
 ## System Design
 
 ### Architecture Overview
@@ -33,9 +45,9 @@ The system implements a distributed online marketplace with six independently de
 
 ## Implementation Status
 
-### ✅ Fully Implemented
+### Fully Implemented
 - All 6 core components
-- All required APIs (except MakePurchase - not required for PA1):
+- All required APIs:
   - **Seller APIs**: CreateAccount, Login, Logout, GetSellerRating, RegisterItemForSale, ChangeItemPrice, UpdateUnitsForSale, DisplayItemsForSale
   - **Buyer APIs**: CreateAccount, Login, Logout, SearchItemsForSale, GetItem, AddItemToCart, RemoveItemFromCart, SaveCart, ClearCart, DisplayCart, ProvideFeedback, GetSellerRating, GetBuyerPurchases
 - Session timeout (5 minutes) with automatic cleanup
@@ -196,24 +208,7 @@ Automated testing via the evaluator component measures:
 4. **In-Memory Storage**: Limited by available RAM
 5. **No Load Balancing**: Single instance per component
 
-## Future Enhancements (PA2/PA3)
 
-- Persistent storage (database integration)
-- Security (encrypted communication, hashed passwords)
-- MakePurchase implementation with financial transactions
-- Replication and fault tolerance
-- Load balancing and scaling
-
-## Team
-
-- Team member names here
-
-## Submission Contents
-
-- All source code files
-- `Cargo.toml` and `Cargo.lock`
-- `README.md` (this file)
-- `DEPLOYMENT_GUIDE.md`
-- `ALIGNMENT_CHECK.md`
-- `deployment.env.example`
-- Performance report (to be added after evaluation)
+## Use of AI
+- Used AI to generate the Readme and report from the evaluation script.
+- Used AI to generate the deployment script
