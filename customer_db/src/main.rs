@@ -141,6 +141,12 @@ async fn handle_request(
         
         CustomerDbRequest::GetSession { session_id } => {
             let session = sessions.get(&session_id).map(|s| s.clone());
+            // Refresh expiration on use → 5 mins of *inactivity* (per assignment)
+            if let Some(ref s) = session {
+                let mut updated = s.clone();
+                updated.expiration = Utc::now().timestamp() + 300;
+                sessions.insert(session_id, updated);
+            }
             CustomerDbResponse::Session(session)
         }
         
