@@ -481,7 +481,7 @@ async fn display_cart(session_id_str: String) -> Result<(), Box<dyn std::error::
                 println!("{:-<80}", "");
             }
             println!("Total items: {}", cart_items.len());
-            println!("Total quantity (placeholder): {}", total);
+            println!("Total quantity: {}", total as u32);
             Ok(())
         }
         BuyerResponse::Error(msg) => {

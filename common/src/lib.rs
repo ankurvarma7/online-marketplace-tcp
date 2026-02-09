@@ -34,7 +34,7 @@ pub struct Seller {
     pub seller_name: String,
     pub feedback: Feedback,
     pub items_sold: i32,
-    pub password: String, // In production, this should be hashed
+    pub password: String,
 }
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
